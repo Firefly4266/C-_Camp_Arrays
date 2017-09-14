@@ -13,17 +13,15 @@ namespace Arrays
             Console.Write("\n Greetings user, we would like you to type a sentence. How many words are in your sentence? ");
             int userInput = Convert.ToInt32(Console.ReadLine());
             string[] words = new string[userInput];
-            int i = 0;
+            int i;
             Console.Write("\n Enter the words in you sentence 1 by 1 followed by <enter>: ");
-            while (i < words.Length)
+            for (i = 0; i < words.Length; i++)
             {
                 words[i] = Console.ReadLine();
-                i++;
-                int entriesLeft = userInput - i;
-                while (entriesLeft != 0)
+                int entriesLeft = (userInput - i) - 1;
+                if (entriesLeft != 0)
                 {
-                    Console.Write($"\n You have {userInput - i} words left to input: ");
-                    break;
+                    Console.Write($"\n You have {entriesLeft} words left to input: ");
                 }
             }
             Console.WriteLine();
