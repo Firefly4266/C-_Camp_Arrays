@@ -10,16 +10,28 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-            Console.Write("\n Greetings user, how many words would you like to store? ");
+            Console.Write("\n Greetings user, we would like you to type a sentence. How many words are in your sentence? ");
             int userInput = Convert.ToInt32(Console.ReadLine());
             string[] words = new string[userInput];
             int i = 0;
+            Console.Write("\n Enter the words in you sentence 1 by 1 followed by <enter>: ");
             while (i < words.Length)
             {
-                Console.Write("\n Enter the words you want to store. ");
                 words[i] = Console.ReadLine();
                 i++;
+                int entriesLeft = userInput - i;
+                while (entriesLeft != 0)
+                {
+                    Console.Write($"\n You have {userInput - i} words left to input: ");
+                    break;
+                }
             }
+            Console.WriteLine();
+            foreach (string word in words)
+            {
+                Console.Write($"{word} ");
+            }
+            Console.WriteLine("\n");
         }
     }
 }
